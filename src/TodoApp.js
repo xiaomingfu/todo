@@ -10,11 +10,14 @@ import TodoList from "./TodoList";
 
 function TodoApp() {
   const initialTodos = [
-    { id: 1, task: "learn code", complete: true },
-    { id: 2, task: "take a photo", complete: false },
-    { id: 1, task: "call mum", complete: true }
+    { id: 1, task: "learn code", completed: true },
+    { id: 2, task: "take a photo", completed: false },
+    { id: 3, task: "call mum", completed: true }
   ];
   const [todos, setTodos] = useState(initialTodos);
+  const addTodo = newTodoText => {
+    setTodos([...todos, { id: 4, task: newTodoText, completed: false }]);
+  };
   return (
     <Paper
       style={{
@@ -30,7 +33,7 @@ function TodoApp() {
           <Typography color="inherit">Todo List</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm />
+      <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} />
     </Paper>
   );
