@@ -5,7 +5,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
+import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+
 function TodoApp() {
   const initialTodos = [
     { id: 1, task: "learn code", complete: true },
@@ -28,6 +30,7 @@ function TodoApp() {
           <Typography color="inherit">Todo List</Typography>
         </Toolbar>
       </AppBar>
+      <TodoForm />
       <TodoList todos={todos} />
     </Paper>
   );
