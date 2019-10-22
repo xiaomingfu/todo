@@ -10,13 +10,10 @@ import TodoList from "./TodoList";
 import useTodoState from "./hook/useTodoState";
 
 function TodoApp() {
-  const initialTodos = JSON.parse(window.localStorage.getItem("todos")) || "";
+  const initialTodos = [{ id: 1, task: "eat", completed: false }];
   const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(
     initialTodos
   );
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
   return (
     <Paper
       style={{
