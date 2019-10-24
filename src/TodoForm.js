@@ -5,11 +5,11 @@ import useInputState from "./hook/useInputState";
 import { TodosContext } from "./context/todos.context";
 
 function TodoForm() {
-  const { addTodo } = useContext(TodosContext);
+  const { dispatch } = useContext(TodosContext);
   const [value, handleChange, reset] = useInputState("");
   const handleSubmit = e => {
     e.preventDefault();
-    addTodo(value);
+    dispatch({ type: "ADD", task: value });
     reset();
   };
   return (
