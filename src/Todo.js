@@ -9,6 +9,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import EditForm from "./EditForm";
 import useToggleState from "./hook/useToggleState";
 import { TodosContext } from "./context/todos.context";
+
 function Todo({ id, todo, completed, task }) {
   const { toggleTodo, removeTodo } = useContext(TodosContext);
   const [isEditing, toggle] = useToggleState(false);
