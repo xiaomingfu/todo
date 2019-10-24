@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import ListItem from "@material-ui/core/listItem";
 import ListItemText from "@material-ui/core/listItemText";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -13,6 +13,7 @@ import { DispatchContext } from "./context/todos.context";
 function Todo({ id, todo, completed, task }) {
   const dispatch = useContext(DispatchContext);
   const [isEditing, toggle] = useToggleState(false);
+  console.log("TODO RE-RENDER:", task);
   return (
     <ListItem style={{ height: "64px" }}>
       {isEditing ? (
@@ -48,4 +49,4 @@ function Todo({ id, todo, completed, task }) {
     </ListItem>
   );
 }
-export default Todo;
+export default memo(Todo);
